@@ -123,12 +123,14 @@ namespace sip
 			MOF_SAFE_DELETE_ARRAY(animName);
 
 			//各データの取得。
+			char loop;
 			fread(&(pAnim->OffsetX), sizeof(float), 1, filePointer);
 			fread(&(pAnim->OffsetY), sizeof(float), 1, filePointer);
 			fread(&(pAnim->Width  ), sizeof(float), 1, filePointer);
 			fread(&(pAnim->Height ), sizeof(float), 1, filePointer);
-			fread(&(pAnim->bLoop  ), sizeof(char ), 1, filePointer);
-
+			fread(&loop            , sizeof(char ), 1, filePointer);
+            pAnim->bLoop = loop;
+            
 			//アニメーションパターンの数を取得。
 			int patternCount;
 			fread(&patternCount, sizeof(int), 1, filePointer);

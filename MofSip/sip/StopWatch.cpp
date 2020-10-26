@@ -2,9 +2,9 @@
 
 using namespace sip;
 
-CStopWatch::CStopWatch(void) :
-	m_bStart(false),
-	m_Time(0.0f)
+CStopWatch::CStopWatch(void)
+	 : m_bStart(false)
+	 , m_Time(0.0f)
 {
 }
 

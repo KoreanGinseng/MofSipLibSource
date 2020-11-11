@@ -13,8 +13,8 @@ namespace sip
 	class CMinMaxParameter
 	{
 	public:
-		T                  Min;
-		T                  Max;
+		T                  Min;  //! ç≈è¨íl
+		T                  Max;  //! ç≈ëÂíl
 
 		// ********************************************************************************
 		/// <summary>

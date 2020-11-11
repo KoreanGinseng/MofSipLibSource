@@ -7,11 +7,11 @@ namespace sip
 	{
 	private:
 
-		SpriteAnimationCreate* m_pAnim;
+		SpriteAnimationCreate* m_pAnim;           //! アニメーション配列
 
-		int                    m_AnimCount;
+		int                    m_AnimCount;       //! アニメーション数
 
-		std::string            m_TextureFileName;
+		std::string            m_TextureFileName; //! 対応画像ファイル名
 
 	public:
 

@@ -12,10 +12,10 @@ namespace sip
 	template <typename Key, typename T > class CAssetBase
 	{
 	private:
-
+		// operator= の削除
 		void operator= (const CAssetBase<Key,T>&) = delete;
 
-		std::unordered_map<Key, std::shared_ptr<T>> m_AssetMap;
+		std::unordered_map<Key, std::shared_ptr<T>> m_AssetMap; //! マップ
 
 		// ********************************************************************************
 		/// <summary>
@@ -65,16 +65,18 @@ namespace sip
 		/// <param name="fileName">ファイル名</param>
 		/// <returns>登録が成功すれば true それ以外 false</returns>
 		/// <created>いのうえ,2020/04/26</created>
-		/// <changed>いのうえ,2020/09/10</changed>
+		/// <changed>いのうえ,2020/11/11</changed>
 		// ********************************************************************************
 		static bool Load(const Key& key, LPCMofChar fileName)
 		{
+			// 存在するかの検索。
 			if (GetAssetMap().m_AssetMap.find(key) == GetAssetMap().m_AssetMap.end() ||
 				GetAssetMap().m_AssetMap[key] == nullptr)
 			{
+				// 存在しない場合はポインタを作成する。
 				GetAssetMap().m_AssetMap[key] = std::make_shared<T>();
 			}
-			GetAssetMap().m_AssetMap[key]->Release();
+			// アセットの読み込みを行う。
 			return GetAssetMap().m_AssetMap[key]->Load(fileName);
 		}
 
@@ -102,11 +104,24 @@ namespace sip
 		// ********************************************************************************
 		static void Erase(const Key& key)
 		{
+			Release(key);
+			GetAssetMap().m_AssetMap.erase(key);
+		}
+
+		// ********************************************************************************
+		/// <summary>
+		/// 指定データの解放。
+		/// </summary>
+		/// <param name="key">開放するデータのキー</param>
+		/// <created>いのうえ,2020/04/26</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
+		static void Release(const Key& key)
+		{
 			if (GetAssetMap().m_AssetMap[key])
 			{
 				GetAssetMap().m_AssetMap[key]->Release();
 			}
-			GetAssetMap().m_AssetMap.erase(key);
 		}
 
 		// ********************************************************************************
@@ -125,20 +140,6 @@ namespace sip
 					itr.second->Release();
 				}
 			}
-		}
-	};
-
-	// ********************************************************************************
-	/// <summary>
-	/// アセットクラスに対応させるためだけのフォントクラス
-	/// </summary>
-	// ********************************************************************************
-	class CFontA : public CFont
-	{
-	public:
-		bool Load(LPCMofChar pName)
-		{
-			return Create(24, pName);
 		}
 	};
 }

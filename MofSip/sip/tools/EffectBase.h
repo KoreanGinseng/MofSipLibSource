@@ -12,10 +12,10 @@ namespace sip
 	{
 	private:
 
-		CEmitter<CMinMaxParameter>                 m_Emitter;
-		CEmitter<CMinMaxParameter>::CreateInfo     m_CreateInfo;
-		std::list<CParticle::ParticlePtr>          m_ParticleList;
-		float                                      m_LifeTime;
+		CEmitter<CMinMaxParameter>                 m_Emitter;        //! エミッター
+		CEmitter<CMinMaxParameter>::CreateInfo     m_CreateInfo;     //! 生成情報
+		std::list<CParticle::ParticlePtr>          m_ParticleList;   //! パーティクルリスト
+		float                                      m_LifeTime;       //! 生存時間(秒)
 
 	public:
 

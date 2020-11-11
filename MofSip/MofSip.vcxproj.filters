@@ -13,57 +13,105 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ソース ファイル\tools">
+      <UniqueIdentifier>{c7664127-f3dc-4254-b1dd-b2b5b2d9fcdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\utilities">
+      <UniqueIdentifier>{cf378003-b197-4243-b6cc-fbae0ba948a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\scene">
+      <UniqueIdentifier>{68b127d6-3b7a-4b86-a091-006d6476ba50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\shader">
+      <UniqueIdentifier>{56b3cfaa-a001-49df-9ac4-7f07f45f8eee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\shader">
+      <UniqueIdentifier>{5c01f95c-b798-4801-82de-8fe032fbf69b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\scene">
+      <UniqueIdentifier>{fdee66a1-d6fc-4092-b3ea-b262ec356e64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\utilities">
+      <UniqueIdentifier>{b7aef804-48a4-455b-bc0c-9f965a41fb6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\tools">
+      <UniqueIdentifier>{690252c9-f192-4de4-99a5-27cccfcf7eaa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sip\AnimationData.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="sip\Easing.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="sip\EffectBase.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="sip\Particle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="sip\StopWatch.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="sip\AnimationData.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\AssetBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\EaseMotionController.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\EaseMotion.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\Easing.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\EffectBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\Particle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\SceneManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\StopWatch.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="sip\Emitter.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="MofSip.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="sip\tools\AnimationData.h">
+      <Filter>ヘッダー ファイル\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\tools\EffectBase.h">
+      <Filter>ヘッダー ファイル\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\AssetBase.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\EaseMotion.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\EaseMotionController.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\Easing.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\tools\Emitter.h">
+      <Filter>ヘッダー ファイル\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\scene\LoadBase.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\scene\SceneManager.h">
+      <Filter>ヘッダー ファイル\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\tools\Particle.h">
+      <Filter>ヘッダー ファイル\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\RoundRect.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\StopWatch.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\shader\ToonShader.h">
+      <Filter>ヘッダー ファイル\shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceFont.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sip\shader\ToonShader.cpp">
+      <Filter>ソース ファイル\shader</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\tools\AnimationData.cpp">
+      <Filter>ソース ファイル\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\utilities\Easing.cpp">
+      <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\tools\EffectBase.cpp">
+      <Filter>ソース ファイル\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\scene\LoadBase.cpp">
+      <Filter>ソース ファイル\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\tools\Particle.cpp">
+      <Filter>ソース ファイル\tools</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\utilities\RoundRect.cpp">
+      <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\utilities\StopWatch.cpp">
+      <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceFont.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

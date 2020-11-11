@@ -164,24 +164,32 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="sip\AnimationData.cpp" />
-    <ClCompile Include="sip\Easing.cpp" />
-    <ClCompile Include="sip\EffectBase.cpp" />
-    <ClCompile Include="sip\Particle.cpp" />
-    <ClCompile Include="sip\StopWatch.cpp" />
+    <ClInclude Include="MofSip.h" />
+    <ClInclude Include="ResourceFont.h" />
+    <ClInclude Include="sip\scene\LoadBase.h" />
+    <ClInclude Include="sip\scene\SceneManager.h" />
+    <ClInclude Include="sip\shader\ToonShader.h" />
+    <ClInclude Include="sip\tools\AnimationData.h" />
+    <ClInclude Include="sip\tools\EffectBase.h" />
+    <ClInclude Include="sip\tools\Emitter.h" />
+    <ClInclude Include="sip\tools\Particle.h" />
+    <ClInclude Include="sip\utilities\AssetBase.h" />
+    <ClInclude Include="sip\utilities\EaseMotion.h" />
+    <ClInclude Include="sip\utilities\EaseMotionController.h" />
+    <ClInclude Include="sip\utilities\Easing.h" />
+    <ClInclude Include="sip\utilities\RoundRect.h" />
+    <ClInclude Include="sip\utilities\StopWatch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MofSip.h" />
-    <ClInclude Include="sip\AnimationData.h" />
-    <ClInclude Include="sip\AssetBase.h" />
-    <ClInclude Include="sip\EaseMotion.h" />
-    <ClInclude Include="sip\EaseMotionController.h" />
-    <ClInclude Include="sip\Easing.h" />
-    <ClInclude Include="sip\EffectBase.h" />
-    <ClInclude Include="sip\Emitter.h" />
-    <ClInclude Include="sip\Particle.h" />
-    <ClInclude Include="sip\SceneManager.h" />
-    <ClInclude Include="sip\StopWatch.h" />
+    <ClCompile Include="ResourceFont.cpp" />
+    <ClCompile Include="sip\scene\LoadBase.cpp" />
+    <ClCompile Include="sip\shader\ToonShader.cpp" />
+    <ClCompile Include="sip\tools\AnimationData.cpp" />
+    <ClCompile Include="sip\tools\EffectBase.cpp" />
+    <ClCompile Include="sip\tools\Particle.cpp" />
+    <ClCompile Include="sip\utilities\Easing.cpp" />
+    <ClCompile Include="sip\utilities\RoundRect.cpp" />
+    <ClCompile Include="sip\utilities\StopWatch.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

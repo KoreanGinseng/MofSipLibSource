@@ -1,32 +1,59 @@
 #pragma once
 #include "Mof.h"
 #include <unordered_map>
-#include "StopWatch.h"
+#include "../utilities/StopWatch.h"
 
-// 参考 SceneManager.hpp in Siv3D
+// 参考 SceneManager.hpp in OpenSiv3D ver4.3.0
 
 namespace sip
 {
+	// プロトタイプ宣言
 	template <class State, class Data> class CSceneManager;
 
 	struct EmptyData {};
 
-	// シーン・インターフェース
+	// ********************************************************************************
+	/// <summary>
+	/// シーン・インターフェース
+	/// </summary>
+	// ********************************************************************************
 	template<class State, class Data>
 	class IScene
 	{
 	public:
 
+		// ********************************************************************************
+		/// <summary>
+		/// 初期化データ
+		/// </summary>
+		// ********************************************************************************
 		struct InitData
 		{
-			State                       state;
+			State                       state;    //! ステート
 
-			std::shared_ptr<Data>       pData;
+			std::shared_ptr<Data>       pData;    //! 共通データポインタ
 
-			CSceneManager<State, Data>* pManager;
+			CSceneManager<State, Data>* pManager; //! シーンマネージャポインタ
 
+			// ********************************************************************************
+			/// <summary>
+			/// コンストラクタ
+			/// </summary>
+			/// <created>いのうえ,2020/11/11</created>
+			/// <changed>いのうえ,2020/11/11</changed>
+			// ********************************************************************************
 			InitData(void) = default;
 
+			// ********************************************************************************
+			/// <summary>
+			/// コンストラクタ
+			/// </summary>
+			/// <param name="s">ステート</param>
+			/// <param name="d">共通データのポインタ</param>
+			/// <param name="m">マネージャのポインタ</param>
+			/// <created>いのうえ,2020/11/11</created>
+			/// <changed>いのうえ,2020/11/11</changed>
+			// ********************************************************************************
 			InitData(const State& s, std::shared_ptr<Data>& d, CSceneManager<State, Data>* m) :
 				state(s),
 				pData(d),
@@ -35,34 +62,84 @@ namespace sip
 
 	private:
 
-		State                           m_State;
+		State                           m_State;     //! ステート
 
-		std::shared_ptr<Data>           m_pData;
+		std::shared_ptr<Data>           m_pData;     //! 共通データポインタ
 
-		CSceneManager<State, Data>*     m_pManager;
+		CSceneManager<State, Data>*     m_pManager;  //! マネージャポインタ
 
 	public:
 
-		explicit IScene(const InitData& init) :
-			m_State(init.state),
-			m_pData(init.pData),
-			m_pManager(init.pManager) {}
+		// ********************************************************************************
+		/// <summary>
+		/// コンストラクタ
+		/// </summary>
+		/// <param name="init">初期化データ</param>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
+		explicit IScene(const InitData& init)
+			: m_State(init.state)
+			, m_pData(init.pData)
+			, m_pManager(init.pManager)
+		{
+		}
 
+		// ********************************************************************************
+		/// <summary>
+		/// デストラクタ
+		/// </summary>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		virtual ~IScene(void) = default;
 
-		// フェードイン時の更新
+		// ********************************************************************************
+		/// <summary>
+		/// フェードイン時の更新
+		/// </summary>
+		/// <param name="float">フェードイン時間</param>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		virtual void UpdateFadeIn(float) {}
 
-		// 通常時の更新
+		// ********************************************************************************
+		/// <summary>
+		/// 通常時の更新
+		/// </summary>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		virtual void Update(void) {}
 
-		// フェードアウト時の更新
+		// ********************************************************************************
+		/// <summary>
+		/// フェードアウト時の更新
+		/// </summary>
+		/// <param name="float">フェードアウト時間</param>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		virtual void UpdateFadeOut(float) {}
 
-		// 通常時の描画
+		// ********************************************************************************
+		/// <summary>
+		/// 通常時の描画
+		/// </summary>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		virtual void Render(void) {}
 
-		// フェードイン時の描画
+		// ********************************************************************************
+		/// <summary>
+		/// フェードイン時の描画
+		/// </summary>
+		/// <param name="t">フェードイン時間</param>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		virtual void RenderFadeIn(float t) 
 		{
 			Render();
@@ -80,7 +157,14 @@ namespace sip
 			);
 		}
 
-		// フェードアウト時の描画
+		// ********************************************************************************
+		/// <summary>
+		/// フェードアウト時の描画
+		/// </summary>
+		/// <param name="t">フェードアウト時間</param>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		virtual void RenderFadeOut(float t)
 		{
 			Render();
@@ -100,12 +184,27 @@ namespace sip
 
 	protected:
 
+		// ********************************************************************************
+		/// <summary>
+		/// ステートの取得
+		/// </summary>
+		/// <returns>ステート</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		const State& GetState(void) const
 		{
 			return m_State;
 		}
 
-		// 共有データへの参照を取得する。
+		// ********************************************************************************
+		/// <summary>
+		/// 共有データへの参照を取得
+		/// </summary>
+		/// <returns>共有データ</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		Data& GetData(void) const
 		{
 			return *m_pData;
@@ -117,27 +216,36 @@ namespace sip
 		/// </summary>
 		/// <param name="state">次のシーンのキー</param>
 		/// <param name="transitionTime">フェードイン・アウトの時間(単位:秒)</param>
-		/// <param name="crossFade">クロスフェードを有効にするか</param>
 		/// <returns>シーンの変更が可能でフェードイン・アウトが開始される場合 true, それ以外 false</returns>
 		/// <created>いのうえ,2020/05/22</created>
-		/// <changed>いのうえ,2020/05/22</changed>
+		/// <changed>いのうえ,2020/11/11</changed>
 		// ********************************************************************************
-		bool ChangeScene(const State& state, const float& transitionTime = 1.0f, bool crossFade = false)
+		bool ChangeScene(const State& state, const float& transitionTime = 1.0f)
 		{
-			return m_pManager->ChangeScene(state, transitionTime, crossFade);
+			return m_pManager->ChangeScene(state, transitionTime);
 		}
 
-		// エラーの発生を通知する。
-		// この関数を呼ぶと、以降の CSceneManager::Update() / CSceneManager::Render() が false を返す。
+		// ********************************************************************************
+		/// <summary>
+		/// エラーの発生を通知する。
+		/// この関数を呼ぶと、以降の CSceneManager::Update() / CSceneManager::Render() が false を返す。
+		/// </summary>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		void NotifyError(void)
 		{
 			return m_pManager->NotifyError();
 		}
 	};
 
-	// シーン管理
-	// State : シーンを区別するキーの型
-	// Data  : シーン間で共有するデータの型
+	// ********************************************************************************
+	/// <summary>
+	/// シーン管理
+	/// State : シーンを区別するキーの型
+	/// Data  : シーン間で共有するデータの型
+	/// </summary>
+	// ********************************************************************************
 	template<class State, class Data = EmptyData>
 	class CSceneManager
 	{
@@ -147,44 +255,53 @@ namespace sip
 
 		using FactoryFunction_t = std::function<Scene_t()>;
 
-		std::unordered_map<State, FactoryFunction_t> m_Factories;
+		std::unordered_map<State, FactoryFunction_t> m_Factories;                   //! 各ステート毎のファクトリ
 
-		std::shared_ptr<Data>                        m_pData;
+		std::shared_ptr<Data>                        m_pData;                       //! 共通データポインタ
 
-		Scene_t                                      m_pCurrent;
+		Scene_t                                      m_pCurrent;                    //! 現在のシーン
 
-		Scene_t                                      m_pNext;
+		Scene_t                                      m_pNext;                       //! 次のシーン
 
-		State                                        m_CurrentState;
+		State                                        m_CurrentState;                //! 現在のステート
 
-		State                                        m_NextState;
+		State                                        m_NextState;                   //! 次のステート
 		
-		std::shared_ptr<State>                       m_pFirst;
+		std::shared_ptr<State>                       m_pFirst;                      //! 最初のステート
 
+		// ********************************************************************************
+		/// <summary>
+		/// シーンの遷移列挙
+		/// </summary>
+		// ********************************************************************************
 		enum class TransitionState
 		{
-			None,
+			None,      //! なし
 
-			FadeIn,
+			FadeIn,    //! フェードイン
 
-			Active,
+			Active,    //! アクティブ
 
-			FadeOut,
+			FadeOut,   //! フェードアウト
 
-			FadeInOut,
+		} m_TransitionState = TransitionState::None;                                //! シーンの遷移状態
 
-		} m_TransitionState = TransitionState::None;
+		CStopWatch                                   m_StopWatch;                   //! ストップウォッチ
 
-		CStopWatch                                   m_StopWatch;
+		float                                        m_TransitionTime = 1.0f;       //! 遷移時間(秒)
 
-		float                                        m_TransitionTime = 1.0f;
+		MofU32                                       m_FadeColor = MOF_COLOR_BLACK; //! フェード色
 
-		MofU32                                       m_FadeColor = MOF_COLOR_BLACK;
+		bool                                         m_bError = false;              //! エラーフラグ
 
-		bool                                         m_bCrossFade = false;
-
-		bool                                         m_bError = false;
-
+		// ********************************************************************************
+		/// <summary>
+		/// シーン単体更新
+		/// </summary>
+		/// <returns>true : 成功, false : 失敗</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		bool UpdateSingle(void)
 		{
 			m_StopWatch.Update();
@@ -236,51 +353,14 @@ namespace sip
 			}
 		}
 
-		bool UpdateCross(void)
-		{
-			m_StopWatch.Update();
-
-			const float elapsed = m_StopWatch.GetTime();
-
-			if (m_TransitionState == TransitionState::FadeInOut)
-			{
-				if (elapsed >= m_TransitionTime)
-				{
-					m_pCurrent = m_pNext;
-
-					m_pNext = nullptr;
-
-					m_StopWatch.Reset();
-
-					m_TransitionState = TransitionState::Active;
-				}
-			}
-
-			if (m_TransitionState == TransitionState::Active)
-			{
-				m_pCurrent->Update();
-
-				return !IsError();
-			}
-			else
-			{
-				assert(m_TransitionTime);
-
-				const float t = elapsed / m_TransitionTime;
-
-				m_pCurrent->UpdateFadeOut(t);
-
-				if (IsError())
-				{
-					return false;
-				}
-
-				m_pNext->UpdateFadeIn(t);
-
-				return !IsError();
-			}
-		}
-
+		// ********************************************************************************
+		/// <summary>
+		/// エラーの取得
+		/// </summary>
+		/// <returns>エラーフラグ</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		bool IsError(void) const noexcept
 		{
 			return m_bError;
@@ -291,15 +371,36 @@ namespace sip
 		// シーンのインターフェース
 		using CScene = IScene<State, Data>;
 
-		// シーン管理の初期化をする。
+		// ********************************************************************************
+		/// <summary>
+		/// シーン管理の初期化をする。
+		/// </summary>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		CSceneManager(void) :
 			m_pData(std::make_shared<Data>()) {}
 
-		// シーン管理の初期化をする。
+		// ********************************************************************************
+		/// <summary>
+		/// シーン管理の初期化をする。
+		/// </summary>
+		/// <param name="data">初期化データ</param>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		CSceneManager(const std::shared_ptr<Data>& data) :
 			m_pData(data) {}
 
-		// シーンを追加する。
+		// ********************************************************************************
+		/// <summary>
+		/// シーンを追加
+		/// </summary>
+		/// <param name="state">追加するシーンのステート名</param>
+		/// <returns>マネージャ</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		template<class CScene>
 		CSceneManager& Add(const State& state)
 		{
@@ -329,7 +430,15 @@ namespace sip
 			return *this;
 		}
 
-		// 最初のシーンを初期化する。
+		// ********************************************************************************
+		/// <summary>
+		/// 最初のシーンを初期化
+		/// </summary>
+		/// <param name="state">初期化データ</param>
+		/// <returns>true : 成功, false : 失敗</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		bool Initialize(const State& state)
 		{
 			if (m_pCurrent)
@@ -360,7 +469,14 @@ namespace sip
 			return true;
 		}
 
-		// シーンを更新する。
+		// ********************************************************************************
+		/// <summary>
+		/// シーンの更新
+		/// </summary>
+		/// <returns>true : 成功, false : 失敗</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		bool UpdateScene(void)
 		{
 			if (IsError())
@@ -380,17 +496,16 @@ namespace sip
 				}
 			}
 
-			if (m_bCrossFade)
-			{
-				return UpdateCross();
-			}
-			else
-			{
-				return UpdateSingle();
-			}
+			return UpdateSingle();
 		}
 
-		// シーンを描画する。
+		// ********************************************************************************
+		/// <summary>
+		/// シーンの描画
+		/// </summary>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		void RenderScene(void)
 		{
 			if (!m_pCurrent)
@@ -413,18 +528,16 @@ namespace sip
 			{
 				m_pCurrent->RenderFadeOut(elapsed / m_TransitionTime);
 			}
-			else if (m_TransitionState == TransitionState::FadeInOut)
-			{
-				m_pCurrent->RenderFadeOut(elapsed / m_TransitionTime);
-
-				if (m_pNext)
-				{
-					m_pNext->RenderFadeIn(elapsed / m_TransitionTime);
-				}
-			}
 		}
 
-		// シーンの更新を行う。
+		// ********************************************************************************
+		/// <summary>
+		/// シーンの更新
+		/// </summary>
+		/// <returns>true : 成功, false : 失敗</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		bool Update(void)
 		{
 			if (!UpdateScene())
@@ -435,7 +548,14 @@ namespace sip
 			return true;
 		}
 
-		// シーンの描画を行う。
+		// ********************************************************************************
+		/// <summary>
+		/// シーンの描画
+		/// </summary>
+		/// <returns>true : 成功, false : 失敗</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		bool Render(void)
 		{
 			if (IsError())
@@ -448,26 +568,44 @@ namespace sip
 			return true;
 		}
 
-		// 共有データを取得する。
+		// ********************************************************************************
+		/// <summary>
+		/// 共有データの取得
+		/// </summary>
+		/// <returns>共有データ</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		std::shared_ptr<Data> GetData(void)
 		{
 			return m_pData;
 		}
 
-		// 共有データを取得する。
+		// ********************************************************************************
+		/// <summary>
+		/// 共有データの取得
+		/// </summary>
+		/// <returns>共有データ</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		const std::shared_ptr<const Data> GetData(void) const
 		{
 			return m_Data;
 		}
 
-		// シーンを変更する。
-		bool ChangeScene(const State& state, float transitionTime, bool crossFade)
+		// ********************************************************************************
+		/// <summary>
+		/// シーンの変更
+		/// </summary>
+		/// <param name="state">変更先のステート</param>
+		/// <param name="transitionTime">遷移時間</param>
+		/// <returns>true : 成功, false : 失敗</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
+		bool ChangeScene(const State& state, float transitionTime)
 		{
-			if (state == m_CurrentState)
-			{
-				crossFade = false;
-			}
-
 			if (m_Factories.find(state) == m_Factories.end())
 			{
 				return false;
@@ -475,51 +613,50 @@ namespace sip
 
 			m_NextState = state;
 
-			m_bCrossFade = crossFade;
+			m_TransitionTime = transitionTime * 0.5f;
 
-			if (crossFade)
-			{
-				m_TransitionTime = transitionTime;
+			m_TransitionState = TransitionState::FadeOut;
 
-				m_TransitionState = TransitionState::FadeInOut;
-
-				m_pNext = m_Factories[m_NextState]();
-
-				if (IsError())
-				{
-					return false;
-				}
-
-				m_CurrentState = m_NextState;
-
-				m_StopWatch.Start();
-			}
-			else
-			{
-				m_TransitionTime = transitionTime * 0.5f;
-
-				m_TransitionState = TransitionState::FadeOut;
-
-				m_StopWatch.Start();
-			}
+			m_StopWatch.Start();
 
 			return true;
 		}
 
-		// フェードイン・アウトのデフォルトの色を設定する。
+		// ********************************************************************************
+		/// <summary>
+		/// フェードイン・アウトのデフォルトの色を設定する。
+		/// </summary>
+		/// <param name="color">設定する色</param>
+		/// <returns>マネージャ</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		CSceneManager& SetFadeColor(const MofU32& color)
 		{
 			m_FadeColor = color;
 			return *this;
 		}
 
-		// フェードイン・アウトのデフォルト色を取得する。
+		// ********************************************************************************
+		/// <summary>
+		/// フェードイン・アウトのデフォルト色を取得する。
+		/// </summary>
+		/// <returns>フェード色</returns>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		const MofU32& GetFadeColor(void) const
 		{
 			return m_FadeColor;
 		}
 
-		// エラーの発生を通知する。
+		// ********************************************************************************
+		/// <summary>
+		/// エラーの発生を通知する。
+		/// </summary>
+		/// <created>いのうえ,2020/11/11</created>
+		/// <changed>いのうえ,2020/11/11</changed>
+		// ********************************************************************************
 		void NotifyError(void)
 		{
 			m_bError = true;

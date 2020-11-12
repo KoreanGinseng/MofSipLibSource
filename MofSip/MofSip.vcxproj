@@ -97,6 +97,9 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)\Library\Include</AdditionalIncludeDirectories>
+      <LanguageStandard>
+      </LanguageStandard>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -165,8 +168,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MofSip.h" />
-    <ClInclude Include="ResourceFont.h" />
-    <ClInclude Include="sip\scene\LoadBase.h" />
+    <ClInclude Include="sip\tools\FileDialog.h" />
+    <ClInclude Include="sip\utilities\ResourceFont.h" />
     <ClInclude Include="sip\scene\SceneManager.h" />
     <ClInclude Include="sip\shader\ToonShader.h" />
     <ClInclude Include="sip\tools\AnimationData.h" />
@@ -181,8 +184,8 @@
     <ClInclude Include="sip\utilities\StopWatch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ResourceFont.cpp" />
-    <ClCompile Include="sip\scene\LoadBase.cpp" />
+    <ClCompile Include="sip\tools\FileDialog.cpp" />
+    <ClCompile Include="sip\utilities\ResourceFont.cpp" />
     <ClCompile Include="sip\shader\ToonShader.cpp" />
     <ClCompile Include="sip\tools\AnimationData.cpp" />
     <ClCompile Include="sip\tools\EffectBase.cpp" />

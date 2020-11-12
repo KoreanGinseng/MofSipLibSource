@@ -19,9 +19,6 @@
     <Filter Include="ソース ファイル\utilities">
       <UniqueIdentifier>{cf378003-b197-4243-b6cc-fbae0ba948a7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\scene">
-      <UniqueIdentifier>{68b127d6-3b7a-4b86-a091-006d6476ba50}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\shader">
       <UniqueIdentifier>{56b3cfaa-a001-49df-9ac4-7f07f45f8eee}</UniqueIdentifier>
     </Filter>
@@ -63,9 +60,6 @@
     <ClInclude Include="sip\tools\Emitter.h">
       <Filter>ヘッダー ファイル\tools</Filter>
     </ClInclude>
-    <ClInclude Include="sip\scene\LoadBase.h">
-      <Filter>ヘッダー ファイル\scene</Filter>
-    </ClInclude>
     <ClInclude Include="sip\scene\SceneManager.h">
       <Filter>ヘッダー ファイル\scene</Filter>
     </ClInclude>
@@ -81,8 +75,11 @@
     <ClInclude Include="sip\shader\ToonShader.h">
       <Filter>ヘッダー ファイル\shader</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceFont.h">
-      <Filter>ヘッダー ファイル</Filter>
+    <ClInclude Include="sip\utilities\ResourceFont.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\tools\FileDialog.h">
+      <Filter>ヘッダー ファイル\tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -98,9 +95,6 @@
     <ClCompile Include="sip\tools\EffectBase.cpp">
       <Filter>ソース ファイル\tools</Filter>
     </ClCompile>
-    <ClCompile Include="sip\scene\LoadBase.cpp">
-      <Filter>ソース ファイル\scene</Filter>
-    </ClCompile>
     <ClCompile Include="sip\tools\Particle.cpp">
       <Filter>ソース ファイル\tools</Filter>
     </ClCompile>
@@ -110,8 +104,11 @@
     <ClCompile Include="sip\utilities\StopWatch.cpp">
       <Filter>ソース ファイル\utilities</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceFont.cpp">
-      <Filter>ソース ファイル</Filter>
+    <ClCompile Include="sip\utilities\ResourceFont.cpp">
+      <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\tools\FileDialog.cpp">
+      <Filter>ソース ファイル\tools</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

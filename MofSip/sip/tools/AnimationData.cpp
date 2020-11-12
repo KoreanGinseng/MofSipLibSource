@@ -3,6 +3,13 @@
 namespace sip
 {
 
+	// ********************************************************************************
+	/// <summary>
+	/// コンストラクタ
+	/// </summary>
+	/// <created>いのうえ,2020/09/10</created>
+	/// <changed>いのうえ,2020/09/10</changed>
+	// ********************************************************************************
 	CAnimationData::CAnimationData(void) :
 		m_pAnim(nullptr),
 		m_AnimCount(0),
@@ -10,17 +17,40 @@ namespace sip
 	{
 	}
 
+	// ********************************************************************************
+	/// <summary>
+	/// コピーコンストラクタ
+	/// </summary>
+	/// <param name="obj">コピーするデータ</param>
+	/// <created>いのうえ,2020/09/10</created>
+	/// <changed>いのうえ,2020/09/10</changed>
+	// ********************************************************************************
 	CAnimationData::CAnimationData(const CAnimationData & obj)
 	{
 		m_pAnim     = obj.m_pAnim;
 		m_AnimCount = obj.m_AnimCount;
 	}
 
+	// ********************************************************************************
+	/// <summary>
+	/// デストラクタ
+	/// </summary>
+	/// <created>いのうえ,2020/09/10</created>
+	/// <changed>いのうえ,2020/09/10</changed>
+	// ********************************************************************************
 	CAnimationData::~CAnimationData(void)
 	{
 		Release();
 	}
 
+	// ********************************************************************************
+	/// <summary>
+	/// operator=
+	/// </summary>
+	/// <param name="obj">コピーデータ</param>
+	/// <created>いのうえ,2020/09/10</created>
+	/// <changed>いのうえ,2020/09/10</changed>
+	// ********************************************************************************
 	void CAnimationData::operator=(const CAnimationData & obj)
 	{
 		m_pAnim     = obj.m_pAnim;

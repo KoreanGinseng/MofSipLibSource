@@ -287,6 +287,7 @@ namespace sip
 		Top += m.y;
 		Right = Left + w;
 		Bottom = Top + h;
+		CalcRectCircle();
 	}
 
 	// ********************************************************************************
@@ -305,6 +306,7 @@ namespace sip
 		Top = pos.y;
 		Right = Left + w;
 		Bottom = Top + h;
+		CalcRectCircle();
 	}
 
 	// ********************************************************************************

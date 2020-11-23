@@ -7,6 +7,8 @@
 #include "sip/utilities/EaseMotionController.h"
 #include "sip/utilities/ResourceFont.h"
 #include "sip/utilities/RoundRect.h"
+#include "sip/utilities/FreeCamera.h"
+#include "sip/utilities/MyCamera2D.h"
 #include "sip/shader/ToonShader.h"
 
 using namespace sip;

@@ -87,6 +87,12 @@
     <ClInclude Include="sip\utilities\FreeCamera.h">
       <Filter>ヘッダー ファイル\utilities</Filter>
     </ClInclude>
+    <ClInclude Include="sip\utilities\MyCamera2D.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\Cursor.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sip\shader\ToonShader.cpp">
@@ -122,9 +128,15 @@
     <ClCompile Include="sip\utilities\FreeCamera.cpp">
       <Filter>ソース ファイル\utilities</Filter>
     </ClCompile>
+    <ClCompile Include="sip\utilities\MyCamera2D.cpp">
+      <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="sip\utilities\MyCamera.inl">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </None>
+    <None Include="sip\utilities\MyCamera2D.inl">
       <Filter>ヘッダー ファイル\utilities</Filter>
     </None>
   </ItemGroup>

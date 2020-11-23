@@ -39,7 +39,10 @@ namespace sip
 	// ********************************************************************************
 	inline CRectangle CMyCamera2D::GetViewRect(void) const
 	{
-		Vector2 size{ g_pGraphics->GetTargetWidth(), g_pGraphics->GetTargetHeight() };
+		Vector2 size{ 
+			(MofFloat)g_pGraphics->GetTargetWidth(),
+			(MofFloat)g_pGraphics->GetTargetHeight()
+		};
 		CRectangle rect{ Vector2(), size };
 		rect.Translation(m_CenterPos - (size * 0.5f));
 		return rect;

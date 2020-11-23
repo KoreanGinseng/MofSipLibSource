@@ -214,7 +214,7 @@ namespace sip
 		// ********************************************************************************
 		virtual void SetBeginEnd(const T& begin, const T& end)
 		{
-			m_Begin = begin;
+			m_Begin = m_Value = begin;
 			m_End = end;
 		}
 

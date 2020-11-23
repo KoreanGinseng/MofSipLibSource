@@ -6,18 +6,6 @@ namespace sip
 	/// <summary>
 	/// コンストラクタ
 	/// </summary>
-	/// <created>いのうえ,2020/11/23</created>
-	/// <changed>いのうえ,2020/11/23</changed>
-	// ********************************************************************************
-	CMyCamera2D::CMyCamera2D(void)
-	{
-		m_MoveMotion.SetBeginEnd(m_CenterPos, m_CenterPos);
-	}
-
-	// ********************************************************************************
-	/// <summary>
-	/// コンストラクタ
-	/// </summary>
 	/// <param name="center">中心座標</param>
 	/// <created>いのうえ,2020/11/23</created>
 	/// <changed>いのうえ,2020/11/23</changed>

@@ -169,6 +169,8 @@
   <ItemGroup>
     <ClInclude Include="MofSip.h" />
     <ClInclude Include="sip\tools\FileDialog.h" />
+    <ClInclude Include="sip\utilities\FreeCamera.h" />
+    <ClInclude Include="sip\utilities\MyCamera.h" />
     <ClInclude Include="sip\utilities\ResourceFont.h" />
     <ClInclude Include="sip\scene\SceneManager.h" />
     <ClInclude Include="sip\shader\ToonShader.h" />
@@ -185,6 +187,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sip\tools\FileDialog.cpp" />
+    <ClCompile Include="sip\utilities\FreeCamera.cpp" />
+    <ClCompile Include="sip\utilities\MyCamera.cpp" />
     <ClCompile Include="sip\utilities\ResourceFont.cpp" />
     <ClCompile Include="sip\shader\ToonShader.cpp" />
     <ClCompile Include="sip\tools\AnimationData.cpp" />
@@ -193,6 +197,9 @@
     <ClCompile Include="sip\utilities\Easing.cpp" />
     <ClCompile Include="sip\utilities\RoundRect.cpp" />
     <ClCompile Include="sip\utilities\StopWatch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sip\utilities\MyCamera.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -81,6 +81,12 @@
     <ClInclude Include="sip\tools\FileDialog.h">
       <Filter>ヘッダー ファイル\tools</Filter>
     </ClInclude>
+    <ClInclude Include="sip\utilities\MyCamera.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="sip\utilities\FreeCamera.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sip\shader\ToonShader.cpp">
@@ -110,5 +116,16 @@
     <ClCompile Include="sip\tools\FileDialog.cpp">
       <Filter>ソース ファイル\tools</Filter>
     </ClCompile>
+    <ClCompile Include="sip\utilities\MyCamera.cpp">
+      <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\utilities\FreeCamera.cpp">
+      <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="sip\utilities\MyCamera.inl">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </None>
   </ItemGroup>
 </Project>

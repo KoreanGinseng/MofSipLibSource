@@ -10,6 +10,7 @@
 #include "sip/utilities/FreeCamera.h"
 #include "sip/utilities/MyCamera2D.h"
 #include "sip/utilities/Cursor.h"
+#include "sip/utilities/Periodic.h"
 #include "sip/shader/ToonShader.h"
 
 using namespace sip;

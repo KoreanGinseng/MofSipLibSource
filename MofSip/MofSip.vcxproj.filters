@@ -93,6 +93,9 @@
     <ClInclude Include="sip\utilities\Cursor.h">
       <Filter>ヘッダー ファイル\utilities</Filter>
     </ClInclude>
+    <ClInclude Include="sip\utilities\Periodic.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sip\shader\ToonShader.cpp">
@@ -130,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="sip\utilities\MyCamera2D.cpp">
       <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\utilities\Periodic.inl">
+      <Filter>ヘッダー ファイル\utilities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

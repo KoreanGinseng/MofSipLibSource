@@ -168,6 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MofSip.h" />
+    <ClInclude Include="sip\utilities\FlagBase.h" />
     <ClInclude Include="sip\utilities\MyTime.h" />
     <ClInclude Include="sip\utilities\Periodic.h" />
     <ClInclude Include="sip\tools\FileDialog.h" />

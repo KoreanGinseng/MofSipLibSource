@@ -99,6 +99,9 @@
     <ClInclude Include="sip\utilities\MyTime.h">
       <Filter>ヘッダー ファイル\utilities</Filter>
     </ClInclude>
+    <ClInclude Include="sip\utilities\FlagBase.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sip\shader\ToonShader.cpp">

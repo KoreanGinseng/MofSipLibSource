@@ -53,7 +53,7 @@ namespace sip
 
 	// ********************************************************************************
 	/// <summary>
-	/// ˆê•û’Ês‚â‚Â
+	/// ˆê•û’Ês‚â‚Â(‚Ì‚±‚¬‚è”g)
 	/// </summary>
 	/// <param name="periodSec">ŽüŠú‚·‚é•b</param>
 	/// <param name="t">Œo‰ßŽžŠÔ</param>

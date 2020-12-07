@@ -1,5 +1,6 @@
 #pragma once
 #include "Mof.h"
+#include "MyTime.h"
 
 namespace sip
 {
@@ -26,7 +27,7 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Sine0_1(const float& periodSec, const float& t);
+		inline static float Sine0_1(const float& periodSec, const float& t = CMyTime::Time());
 
 		// ********************************************************************************
 		/// <summary>
@@ -38,7 +39,7 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Square0_1(const float& periodSec, const float& t);
+		inline static float Square0_1(const float& periodSec, const float& t = CMyTime::Time());
 
 		// ********************************************************************************
 		/// <summary>
@@ -50,11 +51,11 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Triangle0_1(const float& periodSec, const float& t);
+		inline static float Triangle0_1(const float& periodSec, const float& t = CMyTime::Time());
 
 		// ********************************************************************************
 		/// <summary>
-		/// àÍï˚í çsÇ‚Ç¬
+		/// àÍï˚í çsÇ‚Ç¬(ÇÃÇ±Ç¨ÇËîg)
 		/// </summary>
 		/// <param name="periodSec">é¸ä˙Ç∑ÇÈïb</param>
 		/// <param name="t">åoâﬂéûä‘</param>
@@ -62,7 +63,7 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Sawtooth0_1(const float& periodSec, const float& t);
+		inline static float Sawtooth0_1(const float& periodSec, const float& t = CMyTime::Time());
 
 		// ********************************************************************************
 		/// <summary>
@@ -74,7 +75,7 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Jump0_1(const float& periodSec, const float& t);
+		inline static float Jump0_1(const float& periodSec, const float& t = CMyTime::Time());
 	};
 }
 

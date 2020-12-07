@@ -168,6 +168,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MofSip.h" />
+    <ClInclude Include="sip\utilities\MyTime.h" />
     <ClInclude Include="sip\utilities\Periodic.h" />
     <ClInclude Include="sip\tools\FileDialog.h" />
     <ClInclude Include="sip\utilities\Cursor.h" />
@@ -189,6 +190,7 @@
     <ClInclude Include="sip\utilities\StopWatch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sip\utilities\MyTime.cpp" />
     <ClCompile Include="sip\utilities\Periodic.inl" />
     <ClCompile Include="sip\tools\FileDialog.cpp" />
     <ClCompile Include="sip\utilities\FreeCamera.cpp" />

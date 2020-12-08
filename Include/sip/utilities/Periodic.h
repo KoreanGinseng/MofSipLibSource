@@ -27,12 +27,7 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Sine0_1(const float& periodSec, const float& t = CMyTime::Time())
-		{
-			const float x = std::fmodf(t, periodSec) / (periodSec * (1 / MOF_MATH_2PI));
-
-			return std::sinf(x) * 0.5f + 0.5f;
-		}
+		inline static float Sine0_1(const float& periodSec, const float& t = CMyTime::Time());
 
 		// ********************************************************************************
 		/// <summary>
@@ -44,11 +39,8 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Square0_1(const float& periodSec, const float& t = CMyTime::Time())
-		{
-			return (std::fmodf(t, periodSec) < (periodSec * 0.5f)) ? 1.0f : 0.0f;
-		}
-
+		inline static float Square0_1(const float& periodSec, const float& t = CMyTime::Time());
+		
 		// ********************************************************************************
 		/// <summary>
 		/// çsÇ¡ÇƒãAÇ¡ÇƒÇ≠ÇÈÇ‚Ç¬
@@ -59,12 +51,7 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Triangle0_1(const float& periodSec, const float& t = CMyTime::Time())
-		{
-			const float x = std::fmodf(t, periodSec) / (periodSec * 0.5f);
-
-			return x <= 1.0f ? x : 2.0f - x;
-		}
+		inline static float Triangle0_1(const float& periodSec, const float& t = CMyTime::Time());
 
 		// ********************************************************************************
 		/// <summary>
@@ -76,10 +63,7 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Sawtooth0_1(const float& periodSec, const float& t = CMyTime::Time())
-		{
-			return std::fmodf(t, periodSec) / periodSec;
-		}
+		inline static float Sawtooth0_1(const float& periodSec, const float& t = CMyTime::Time());
 
 		// ********************************************************************************
 		/// <summary>
@@ -91,16 +75,8 @@ namespace sip
 		/// <created>Ç¢ÇÃÇ§Ç¶,2020/12/04</created>
 		/// <changed>Ç¢ÇÃÇ§Ç¶,2020/12/04</changed>
 		// ********************************************************************************
-		inline static float Jump0_1(const float& periodSec, const float& t = CMyTime::Time())
-		{
-			float x = std::fmodf(t, periodSec) / (periodSec * 0.5f);
-
-			if (1.0f < x)
-			{
-				x = 2.0f - x;
-			}
-
-			return 2 * x - (x * x);
-		}
+		inline static float Jump0_1(const float& periodSec, const float& t = CMyTime::Time());
 	};
 }
+
+#include "Periodic.inl"

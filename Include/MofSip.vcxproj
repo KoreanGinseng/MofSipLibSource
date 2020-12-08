@@ -211,6 +211,7 @@
   <ItemGroup>
     <None Include="sip\utilities\MyCamera.inl" />
     <None Include="sip\utilities\MyCamera2D.inl" />
+    <None Include="sip\utilities\Periodic.inl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

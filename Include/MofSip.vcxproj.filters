@@ -151,5 +151,8 @@
     <None Include="sip\utilities\MyCamera2D.inl">
       <Filter>ヘッダー ファイル\utilities</Filter>
     </None>
+    <None Include="sip\utilities\Periodic.inl">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </None>
   </ItemGroup>
 </Project>

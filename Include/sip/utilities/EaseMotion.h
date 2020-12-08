@@ -267,7 +267,7 @@ namespace sip
 		/// <created>‚¢‚Ì‚¤‚¦,2020/09/10</created>
 		/// <changed>‚¢‚Ì‚¤‚¦,2020/09/10</changed>
 		// ********************************************************************************
-		T& GetValue(void) const
+		const T& GetValue(void) const
 		{
 			return m_Value;
 		}

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1062
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MofSip", "MofSip\MofSip.vcxproj", "{9F256967-B6E5-46E0-93CB-DFB0C9A66955}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ProjectVS2017", "Project\ProjectVS2017.vcxproj", "{582B9C61-742D-4D2B-9C72-42C088CE473D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MofSip", "Include\MofSip.vcxproj", "{9F256967-B6E5-46E0-93CB-DFB0C9A66955}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,12 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{582B9C61-742D-4D2B-9C72-42C088CE473D}.Debug|x64.ActiveCfg = Debug|Win32
+		{582B9C61-742D-4D2B-9C72-42C088CE473D}.Debug|x86.ActiveCfg = Debug|Win32
+		{582B9C61-742D-4D2B-9C72-42C088CE473D}.Debug|x86.Build.0 = Debug|Win32
+		{582B9C61-742D-4D2B-9C72-42C088CE473D}.Release|x64.ActiveCfg = Release|Win32
+		{582B9C61-742D-4D2B-9C72-42C088CE473D}.Release|x86.ActiveCfg = Release|Win32
+		{582B9C61-742D-4D2B-9C72-42C088CE473D}.Release|x86.Build.0 = Release|Win32
 		{9F256967-B6E5-46E0-93CB-DFB0C9A66955}.Debug|x64.ActiveCfg = Debug|x64
 		{9F256967-B6E5-46E0-93CB-DFB0C9A66955}.Debug|x64.Build.0 = Debug|x64
 		{9F256967-B6E5-46E0-93CB-DFB0C9A66955}.Debug|x86.ActiveCfg = Debug|Win32

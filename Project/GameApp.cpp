@@ -18,6 +18,13 @@ enum SipDebugFlags : MofU32
 
 Flags32 gFlags;
 
+CFreeCamera gFreeCamera;
+
+void RenderDebug(void)
+{
+	CGraphicsUtilities::RenderString(0, 0, "Time : %.3f(s)", CMyTime::Time());
+}
+
 /*************************************************************************//*!
 		@brief			アプリケーションの初期化
 		@param			None
@@ -31,6 +38,10 @@ MofBool CGameApp::Initialize(void) {
 
 	gFlags.Set(SipDebugFlags::SIP_DEBUG);
 
+	gFreeCamera.Initialize();
+
+	CGraphicsUtilities::SetCamera(gFreeCamera.GetCamera());
+
 	return TRUE;
 }
 /*************************************************************************//*!
@@ -43,6 +54,10 @@ MofBool CGameApp::Initialize(void) {
 MofBool CGameApp::Update(void) {
 	//キーの更新
 	g_pInput->RefreshKey();
+
+	gFreeCamera.Update();
+	float v = (CPeriodic::Sine0_1(0.15f) * 2.0f - 1.0f) * 0.05f;
+	gFreeCamera.SetPosition(gFreeCamera.GetPosition() + Vector3(v, 0, 0));
 
 	if (g_pInput->IsKeyPush(MOFKEY_F1))
 	{
@@ -69,15 +84,28 @@ MofBool CGameApp::Render(void) {
 	//描画開始
 	g_pGraphics->RenderStart();
 	//画面のクリア
-	g_pGraphics->ClearTarget(0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0);
+	g_pGraphics->ClearTarget(0.0f, 0.0f, 0.0f, 0.0f, 1.0f, 0);
 
-	CGraphicsUtilities::RenderFillArc(100, 100, 50, MOF_ToRadian(90), MOF_ToRadian(90 + 360 * CPeriodic::Triangle0_1(10.0f)), MOF_COLOR_WHITE, MOF_COLOR_BLACK);
+	g_pGraphics->SetDepthEnable(TRUE);
+
+	float nowTime = CMyTime::Time();
+
+	CBoxOBB box(Vector3(0, 0, 0), Vector3(2, 0, 1), Vector3(0, MOF_ToRadian(45), 0));
+	for (int i = 0; i < 10; i++)
+	{
+		//box.Position.y = (CPeriodic::Sawtooth0_1(1.0f, nowTime) + i) * 0.05f;
+		CGraphicsUtilities::RenderLineBox(box);
+	}
+
+	g_pGraphics->SetDepthEnable(FALSE);
 
 	// Render_DEBUG
 	if (gFlags.Check(SipDebugFlags::SIP_DEBUG))
 	{
-		CGraphicsUtilities::RenderString(0, 0, "Time : %.3f(s)", CMyTime::Time());
+		RenderDebug();
 	}
+
+	CGraphicsUtilities::RenderFillRect(CRectangle(100, 100, 200, 200), CHSVUtilities::ToRGB(HSV(CMyTime::Time() * 60, 255, 255)));
 	
 	//描画の終了
 	g_pGraphics->RenderEnd();

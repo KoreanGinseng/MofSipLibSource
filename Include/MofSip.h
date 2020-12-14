@@ -12,6 +12,7 @@
 #include "sip/utilities/Cursor.h"
 #include "sip/utilities/Periodic.h"
 #include "sip/utilities/FlagBase.h"
+#include "sip/utilities/HSV.h"
 #include "sip/shader/ToonShader.h"
 
 namespace sip

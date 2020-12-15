@@ -34,6 +34,12 @@
     <Filter Include="ヘッダー ファイル\tools">
       <UniqueIdentifier>{690252c9-f192-4de4-99a5-27cccfcf7eaa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\application">
+      <UniqueIdentifier>{7a71a4e5-2d02-4740-b1f2-d75c946aa6d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\application">
+      <UniqueIdentifier>{bcef35ab-f8dd-4977-893e-951f96ee08b0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MofSip.h">
@@ -105,6 +111,9 @@
     <ClInclude Include="sip\utilities\HSV.h">
       <Filter>ヘッダー ファイル\utilities</Filter>
     </ClInclude>
+    <ClInclude Include="sip\application\SipFramework.h">
+      <Filter>ヘッダー ファイル\application</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sip\shader\ToonShader.cpp">
@@ -148,6 +157,9 @@
     </ClCompile>
     <ClCompile Include="sip\utilities\HSV.cpp">
       <Filter>ソース ファイル\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="sip\application\SipFramework.cpp">
+      <Filter>ソース ファイル\application</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

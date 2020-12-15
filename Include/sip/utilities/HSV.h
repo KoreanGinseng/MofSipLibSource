@@ -54,6 +54,11 @@ namespace sip
 		HSV operator * (MofS32 v) const;
 		HSV operator / (MofS32 v) const;
 
+		HSV& operator *= (float v);
+		HSV& operator /= (float v);
+		HSV operator * (float v) const;
+		HSV operator / (float v) const;
+
 		MofS32& operator[] (int i);
 		const MofS32& operator[] (int i) const;
 

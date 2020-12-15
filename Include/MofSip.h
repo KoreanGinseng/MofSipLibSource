@@ -14,6 +14,7 @@
 #include "sip/utilities/FlagBase.h"
 #include "sip/utilities/HSV.h"
 #include "sip/shader/ToonShader.h"
+#include "sip/application/SipFramework.h"
 
 namespace sip
 {

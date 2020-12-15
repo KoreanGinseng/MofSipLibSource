@@ -204,6 +204,30 @@ namespace sip
 	{
 		return HSV(this->h / v, this->s / v, this->v / v);
 	}
+
+	HSV & HSV::operator*=(float v)
+	{
+		this->h *= v;
+		this->s *= v;
+		this->v *= v;
+
+		return *this;
+	}
+
+	HSV & HSV::operator/=(float v)
+	{
+		// TODO: return ステートメントをここに挿入します
+	}
+
+	HSV HSV::operator*(float v) const
+	{
+		return HSV();
+	}
+
+	HSV HSV::operator/(float v) const
+	{
+		return HSV();
+	}
 	
 	MofS32 & HSV::operator[](int i)
 	{

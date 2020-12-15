@@ -171,6 +171,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="MofSip.h" />
+    <ClInclude Include="sip\application\SipFramework.h" />
     <ClInclude Include="sip\utilities\FlagBase.h" />
     <ClInclude Include="sip\utilities\HSV.h" />
     <ClInclude Include="sip\utilities\MyTime.h" />
@@ -195,6 +196,7 @@
     <ClInclude Include="sip\utilities\StopWatch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="sip\application\SipFramework.cpp" />
     <ClCompile Include="sip\utilities\HSV.cpp" />
     <ClCompile Include="sip\utilities\MyTime.cpp" />
     <ClCompile Include="sip\tools\FileDialog.cpp" />

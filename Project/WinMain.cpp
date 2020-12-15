@@ -4,6 +4,7 @@ int WINAPI _tWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 {
 	_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
 
+	sip::LPSipFrameworkThread pSipFrame = new sip::CSipFrameworkThread();
 	Mof::LPFramework pFrame = new Mof::CDX11GameFramework(); 
 	Mof::WINDOWSGAMEFRAMEWORKINITIALIZEINFO Info;
 	Info.pApplication = new CGameApp();
@@ -12,5 +13,6 @@ int WINAPI _tWinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmd
 		pFrame->Run();
 	}
 	MOF_SAFE_DELETE(pFrame);
+	MOF_SAFE_DELETE(pSipFrame);
 	return 0;
 }

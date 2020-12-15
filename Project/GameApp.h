@@ -10,7 +10,7 @@
 #pragma once
 
 //INCLUDE
-#include	"Mof.h"
+#include	"MofSip.h"
 
 /*******************************//*!
 @brief	基本ゲームアプリ。

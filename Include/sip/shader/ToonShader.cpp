@@ -149,8 +149,5 @@ namespace sip
 		m_ToonTex.Render(0, 0);
 
 		g_pGraphics->SetRenderTarget(m_pOriginalRenderTarget, m_pOriginalDepthTarget);
-		//g_pGraphics->SetRenderTargetAt(1, nullptr, nullptr);
-		//g_pGraphics->SetRenderTargetAt(2, nullptr, nullptr);
-		//g_pGraphics->SetRenderTargetCount(1);
 	}
 }

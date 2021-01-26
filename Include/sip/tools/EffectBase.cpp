@@ -249,6 +249,36 @@ namespace sip
 
 	// ********************************************************************************
 	/// <summary>
+	/// エミッターのスケール変更
+	/// </summary>
+	/// <param name="scale">エミッターの変更後スケール</param>
+	/// <returns>this</returns>
+	/// <created>いのうえ,2021/01/26</created>
+	/// <changed>いのうえ,2021/01/26</changed>
+	// ********************************************************************************
+	CEffectBase & CEffectBase::SetScale(const Vector3 & scale)
+	{
+		m_Emitter.SetScale(scale);
+		return *this;
+	}
+
+	// ********************************************************************************
+	/// <summary>
+	/// エミッターの回転
+	/// </summary>
+	/// <param name="rot">エミッターの変更後回転値</param>
+	/// <returns>this</returns>
+	/// <created>いのうえ,2021/01/26</created>
+	/// <changed>いのうえ,2021/01/26</changed>
+	// ********************************************************************************
+	CEffectBase & CEffectBase::SetRotation(const Vector3 & rot)
+	{
+		m_Emitter.SetRotation(rot);
+		return *this;
+	}
+
+	// ********************************************************************************
+	/// <summary>
 	/// 寿命の設定
 	/// </summary>
 	/// <param name="t">寿命(単位は秒)</param>

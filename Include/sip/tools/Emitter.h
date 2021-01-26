@@ -330,6 +330,8 @@ namespace sip
 				m_UpdateBehavior.Rotation.GetParameter(cinfo.UpdateBehavior.Rotation);
 				m_UpdateBehavior.Color.GetParameter(cinfo.UpdateBehavior.Color);
 
+				cinfo.UpdateBehavior.Move.TransformNormal(m_State.World, cinfo.UpdateBehavior.Move);
+
 				// ŠÂ‹«î•ñ‚Ì¶¬
 				cinfo.EnvironmentBehavior.Gravity = m_EnvironmentBehavior.Gravity;
 

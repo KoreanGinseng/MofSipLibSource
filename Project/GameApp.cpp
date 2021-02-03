@@ -161,5 +161,7 @@ MofBool CGameApp::Release(void) {
 	
 	gSprite3d.Release();
 
+    MOF_SAFE_DELETE(gToon);
+
 	return TRUE;
 }

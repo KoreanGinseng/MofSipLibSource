@@ -15,21 +15,9 @@ enum SipDebugFlags : MofU32
 	SIP_DEBUG = 1 << 0,
 };
 
-Flags32 gFlags;
+Flags32     gFlags;
 
 CFreeCamera gFreeCamera;
-
-CTexture gUVScroll;
-LPGeometry gpBox;
-
-void RenderDebug(void)
-{
-	CGraphicsUtilities::RenderString(0, 0, "Time : %.3f(s)", CMyTime::Time());
-}
-
-CToonShader* gToon;
-
-CSprite3D gSprite3d;
 
 /*************************************************************************//*!
 		@brief			アプリケーションの初期化
@@ -47,17 +35,6 @@ MofBool CGameApp::Initialize(void) {
 	gFreeCamera.Initialize();
 
 	CGraphicsUtilities::SetCamera(gFreeCamera.GetCamera());
-
-
-	gSprite3d.CreateSprite("shima.png");
-	float h = gSprite3d.m_pTexture->GetHeight();
-	float w = gSprite3d.m_pTexture->GetWidth();
-	gSprite3d.SetImageRect(CRectangle(0, 0, w, h * 10));
-	gSprite3d.Update();
-
-	gToon = new CToonShader();
-	gToon->Create();
-	gToon->LoadToonMap("shima.png");
 
 	return TRUE;
 }
@@ -88,15 +65,6 @@ MofBool CGameApp::Update(void) {
 		}
 	}
 
-	if (g_pInput->IsKeyPush(MOFKEY_SPACE))
-	{
-		gToon->Release();
-		delete gToon;
-		gToon = new CToonShader();
-
-		gToon->Create();
-		gToon->LoadToonMap("shima.png");
-	}
 	return TRUE;
 }
 /*************************************************************************//*!
@@ -116,32 +84,11 @@ MofBool CGameApp::Render(void) {
 
 	float nowTime = CMyTime::Time();
 
-	gToon->Begin();
-
-	CBoxOBB box(Vector3(0, 0, 0), Vector3(2, 0, 1), Vector3(0, MOF_ToRadian(45), 0));
-	for (int i = 0; i < 10; i++)
-	{
-		//box.Position.y = (CPeriodic::Sawtooth0_1(1.0f, nowTime) + i) * 0.05f;
-		//CGraphicsUtilities::RenderLineBox(box);
-	}
-	CMatrix44 matWorld;
-	static float t = 0;
-	t += 0.01f;
-	gSprite3d.m_Position.y = CPeriodic::Sawtooth0_1(1.0f / 3.f) * 0.1f;
-	gSprite3d.m_Scale;
-	gSprite3d.m_Angle;
-	gSprite3d.Update();
-	//gpBox->Render(matWorld,Vector4(1,1,1,1),Vector2(0,t));
-	gSprite3d.Render();
-
-	gToon->End();
-
 	g_pGraphics->SetDepthEnable(FALSE);
 
 	// Render_DEBUG
 	if (gFlags.Check(SipDebugFlags::SIP_DEBUG))
 	{
-		RenderDebug();
 	}
 
 	CGraphicsUtilities::RenderFillRect(CRectangle(100, 100, 200, 200), CHSVUtilities::ToRGB(HSV(CMyTime::Time() * 60, 255, 255)));
@@ -159,9 +106,6 @@ MofBool CGameApp::Render(void) {
 *//**************************************************************************/
 MofBool CGameApp::Release(void) {
 	
-	gSprite3d.Release();
-
-    MOF_SAFE_DELETE(gToon);
 
 	return TRUE;
 }

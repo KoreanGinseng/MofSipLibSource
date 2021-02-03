@@ -2,14 +2,30 @@
 
 namespace sip
 {
-	HSV::HSV(MofS32 h, MofS32 s, MofS32 v)
+
+    // ********************************************************************************
+    /// <summary>
+    /// コンストラクタ
+    /// </summary>
+    /// <param name="h">色相(0~359)</param>
+    /// <param name="s">彩度(0~255)</param>
+    /// <param name="v">明度(0~255)</param>
+    /// <created>いのうえ,2021/02/03</created>
+    /// <changed>いのうえ,2021/02/03</changed>
+    // ********************************************************************************
+    HSV::HSV(MofS32 h, MofS32 s, MofS32 v)
 		: h(h % 360)
 		, s(s % 256)
 		, v(v % 256)
 	{
 	}
 
-	HSV & HSV::operator=(const Vector3Impl & v)
+    // ********************************************************************************
+    /// <summary>
+    /// 各operator
+    /// </summary>
+    // ********************************************************************************
+    HSV & HSV::operator=(const Vector3Impl & v)
 	{
 		this->h = (MofS32)v.x;
 		this->s = (MofS32)v.y;
@@ -263,7 +279,16 @@ namespace sip
 		return (this->h != (MofS32)v.x || this->s != (MofS32)v.y || this->v != (MofS32)v.z);
 	}
 	
-	MofU32 CHSVUtilities::ToRGB(const HSV & v)
+    // ********************************************************************************
+    /// <summary>
+    /// RGBへ変換
+    /// </summary>
+    /// <param name="v">HSV</param>
+    /// <returns>RGB</returns>
+    /// <created>いのうえ,2021/02/03</created>
+    /// <changed>いのうえ,2021/02/03</changed>
+    // ********************************************************************************
+    MofU32 CHSVUtilities::ToRGB(const HSV & v)
 	{
 		if (v.s == 0)
 		{
@@ -320,11 +345,31 @@ namespace sip
 		return MOF_XRGB(r, g, b);
 	}
 
-	MofU32 CHSVUtilities::ToRGB(MofS32 h, MofS32 s, MofS32 v)
+    // ********************************************************************************
+    /// <summary>
+    /// RGBへ変換
+    /// </summary>
+    /// <param name="h">色相(0~359)</param>
+    /// <param name="s">彩度(0~255)</param>
+    /// <param name="v">明度(0~255)</param>
+    /// <returns>RGB</returns>
+    /// <created>いのうえ,2021/02/03</created>
+    /// <changed>いのうえ,2021/02/03</changed>
+    // ********************************************************************************
+    MofU32 CHSVUtilities::ToRGB(MofS32 h, MofS32 s, MofS32 v)
 	{
 		return ToRGB(HSV(h, s, v));
 	}
 
+    // ********************************************************************************
+    /// <summary>
+    /// Vector4へ変換
+    /// </summary>
+    /// <param name="v">HSV</param>
+    /// <returns>Vector4</returns>
+    /// <created>いのうえ,2021/02/03</created>
+    /// <changed>いのうえ,2021/02/03</changed>
+    // ********************************************************************************
 	Vector4 CHSVUtilities::ToVector4(const HSV & v)
 	{
 		Vector4 color;
@@ -332,7 +377,18 @@ namespace sip
 		return color;
 	}
 
-	Vector4 CHSVUtilities::ToVector4(MofS32 h, MofS32 s, MofS32 v)
+    // ********************************************************************************
+    /// <summary>
+    /// Vector4へ変換
+    /// </summary>
+    /// <param name="h">色相(0~359)</param>
+    /// <param name="s">彩度(0~255)</param>
+    /// <param name="v">明度(0~255)</param>
+    /// <returns>Vector4</returns>
+    /// <created>いのうえ,2021/02/03</created>
+    /// <changed>いのうえ,2021/02/03</changed>
+    // ********************************************************************************
+    Vector4 CHSVUtilities::ToVector4(MofS32 h, MofS32 s, MofS32 v)
 	{
 		Vector4 color;
 		CVector4Utilities::SetU32Color(ToRGB(HSV(h, s, v)), color);

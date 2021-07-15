@@ -70,14 +70,15 @@ namespace sip
 		static bool Load(const Key& key, LPCMofChar fileName)
 		{
 			// 存在するかの検索。
-			if (GetAssetMap().m_AssetMap.find(key) == GetAssetMap().m_AssetMap.end() ||
-				GetAssetMap().m_AssetMap[key] == nullptr)
+			auto& aseet = GetAssetMap().m_AssetMap.find(key);
+			if (aseet == GetAssetMap().m_AssetMap.end() ||
+				aseet == nullptr)
 			{
 				// 存在しない場合はポインタを作成する。
-				GetAssetMap().m_AssetMap[key] = std::make_shared<T>();
+				aseet = std::make_shared<T>();
 			}
 			// アセットの読み込みを行う。
-			return GetAssetMap().m_AssetMap[key]->Load(fileName);
+			return aseet->Load(fileName);
 		}
 
 		// ********************************************************************************
@@ -118,9 +119,10 @@ namespace sip
 		// ********************************************************************************
 		static void Release(const Key& key)
 		{
-			if (GetAssetMap().m_AssetMap[key])
+			auto& asset = GetAssetMap().m_AssetMap[key];
+			if (asset)
 			{
-				GetAssetMap().m_AssetMap[key]->Release();
+				asset->Release();
 			}
 		}
 

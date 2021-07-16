@@ -1,5 +1,6 @@
 #pragma once
 #include "Mof.h"
+#include <string>
 
 namespace sip
 {

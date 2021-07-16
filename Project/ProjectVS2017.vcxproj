@@ -102,9 +102,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameApp.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Version.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Resource\shima.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

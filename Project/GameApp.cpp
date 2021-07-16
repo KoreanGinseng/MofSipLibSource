@@ -9,6 +9,7 @@
 
 //INCLUDE
 #include	"GameApp.h"
+#include    "resource.h"
 
 enum SipDebugFlags : MofU32
 {
@@ -18,6 +19,8 @@ enum SipDebugFlags : MofU32
 Flags32     gFlags;
 
 CFreeCamera gFreeCamera;
+
+CResourceTexture gTex;
 
 /*************************************************************************//*!
 		@brief			アプリケーションの初期化
@@ -35,6 +38,10 @@ MofBool CGameApp::Initialize(void) {
 	gFreeCamera.Initialize();
 
 	CGraphicsUtilities::SetCamera(gFreeCamera.GetCamera());
+
+	if (!gTex.Load(IDB_PNG1, "shima.png", "PNG")) {
+		return FALSE;
+	}
 
 	return TRUE;
 }
@@ -90,6 +97,7 @@ MofBool CGameApp::Render(void) {
 	if (gFlags.Check(SipDebugFlags::SIP_DEBUG))
 	{
 	}
+	gTex.Render(0,0);
 
 	CGraphicsUtilities::RenderFillRect(CRectangle(100, 100, 200, 200), CHSVUtilities::ToRGB(HSV(CMyTime::Time() * 60, 255, 255)));
 	
@@ -106,6 +114,6 @@ MofBool CGameApp::Render(void) {
 *//**************************************************************************/
 MofBool CGameApp::Release(void) {
 	
-
+	gTex.Release();
 	return TRUE;
 }

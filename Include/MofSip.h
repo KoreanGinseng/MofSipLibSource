@@ -15,6 +15,7 @@
 #include "sip/utilities/HSV.h"
 #include "sip/shader/ToonShader.h"
 #include "sip/application/SipFramework.h"
+#include "sip/utilities/ResourceAsset.h"
 
 namespace sip
 {

@@ -114,6 +114,9 @@
     <ClInclude Include="sip\application\SipFramework.h">
       <Filter>ヘッダー ファイル\application</Filter>
     </ClInclude>
+    <ClInclude Include="sip\utilities\ResourceAsset.h">
+      <Filter>ヘッダー ファイル\utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="sip\shader\ToonShader.cpp">

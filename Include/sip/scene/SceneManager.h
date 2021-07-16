@@ -2,6 +2,7 @@
 #include "Mof.h"
 #include <unordered_map>
 #include "../utilities/StopWatch.h"
+#include <memory>
 
 // éQçl SceneManager.hpp in OpenSiv3D ver4.3.0
 
